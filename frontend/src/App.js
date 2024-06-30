@@ -16,16 +16,19 @@ const App = () => {
   const [token, setToken] = useState(null);
 
   return (
-    <store.Provider value={[token, setToken]}>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/create-todo" element={<PrivateRoute element={<TodoForm />} />} />
-          <Route path="/TodoList" element={<PrivateRoute element={<TodoList />} />} />
-        </Routes>
-      </BrowserRouter>
-    </store.Provider>
+    <div>
+      <store.Provider value={[token, setToken]}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/create-todo" element={<PrivateRoute element={<TodoForm />} />} />
+            <Route path="/update-todo/:id" element={<PrivateRoute element={<TodoForm />} />} />
+            <Route path="/TodoList" element={<PrivateRoute element={<TodoList />} />} />
+          </Routes>
+        </BrowserRouter>
+      </store.Provider>
+    </div>
   );
 };
 
